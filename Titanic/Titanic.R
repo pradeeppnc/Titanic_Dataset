@@ -89,8 +89,8 @@ full$Pclass = as.factor(full$Pclass)
 full$FsizeD = as.factor(full$FsizeD)
 
 #Split the data to train & test
-train <- full[1:891,]
-test <- full[892:1309,]
+train = full[1:891,]
+test = full[892:1309,]
 
 #Make prediction using randomForest
 library(randomForest)
