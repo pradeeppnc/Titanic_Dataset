@@ -48,14 +48,11 @@ table(full$Sex, full$Title)
 #Combine rare titles into one
 full$Title = as.character(full$Title)
 
-officer = c('Capt', 'Col', 'Don', 'Dr', 'Major', 'Rev')
-royalty = c('Dona', 'Lady', 'the Countess','Sir', 'Jonkheer')
-
 full$Title[full$Title == 'Mlle'] = 'Miss' 
 full$Title[full$Title == 'Ms'] = 'Miss'
 full$Title[full$Title == 'Mme'] = 'Mrs' 
-full$Title[full$Title %in% royalty] = 'Royalty'
-full$Title[full$Title %in% officer] = 'Officer'
+full$Title[full$Title %in% c('Capt', 'Col', 'Don', 'Dr', 'Major', 'Rev')] = 'Royalty'
+full$Title[full$Title %in% c('Dona', 'Lady', 'the Countess','Sir', 'Jonkheer')] = 'Officer'
 
 #Create new variable Surname from Name
 full$Surname = sapply(full$Name, function(x) strsplit(x, split = '[,.]')[[1]][1])
